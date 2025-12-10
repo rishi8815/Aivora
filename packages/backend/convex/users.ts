@@ -1,8 +1,8 @@
-import { query ,mutation} from"./_generated/server"
+import { query, mutation } from "./_generated/server"
 
 export const getMany = query({
-    args:{},
-    handler :async (ctx)=>{
+    args: {},
+    handler: async (ctx) => {
 
         const users = await ctx.db.query("users").collect()
         return users
@@ -11,15 +11,21 @@ export const getMany = query({
 })
 
 export const add = mutation({
-    args:{},
-    handler :async (ctx)=>{
+    args: {},
+    handler: async (ctx) => {
         const identity = await ctx.auth.getUserIdentity()
-        if(identity===null){
+        if (identity === null) {
             throw new Error("User not found")
         }
+        const orgId = identity.orgId as string;
 
-        const userId = await ctx.db.insert("users",{
-            name:"rishabh"
+        if (!orgId) {
+            throw new Error(" Missing Organization")
+        }
+
+        throw new Error("tracking test")
+        const userId = await ctx.db.insert("users", {
+            name: "rishabh"
         })
         return userId
     }
