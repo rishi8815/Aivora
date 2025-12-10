@@ -13,9 +13,13 @@ export const getMany = query({
 export const add = mutation({
     args:{},
     handler :async (ctx)=>{
+        const identity = await ctx.auth.getUserIdentity()
+        if(identity===null){
+            throw new Error("User not found")
+        }
 
         const userId = await ctx.db.insert("users",{
-            name:"rishabh",
+            name:"rishabh"
         })
         return userId
     }
