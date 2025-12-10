@@ -1,7 +1,10 @@
-import { SignUp } from "@clerk/nextjs";
+import { SignUpView } from "@/modules/ui/views/sign-up-view";
 
-const Page =()=>{
-    return (<SignUp/>)
+
+const Page = () => {
+    return (
+        <SignUpView />
+    )
 }
 
 export default Page
