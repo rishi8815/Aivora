@@ -41,6 +41,7 @@ import {
     useSidebar,
 } from "@workspace/ui/components/sidebar"
 import { usePathname } from "next/navigation"
+import { cn } from "@workspace/ui/lib/utils";
 
 
 
@@ -134,7 +135,9 @@ export const DashboardSidebar = () => {
                             <SidebarMenu>
                                 {customerSupportItems.map((item) => (
                                     <SidebarMenuItem key={item.title}>
-                                        <SidebarMenuButton asChild tooltip={item.title} isActive={isActive(item.url)} >
+                                        <SidebarMenuButton className={cn(
+                                            isActive(item.url) && "bg-gradient-to-b from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90!"
+                                        )} asChild tooltip={item.title} isActive={isActive(item.url)} >
                                             <Link href={item.url}>
                                                 <item.icon />
                                                 <span>{item.title}</span>
@@ -158,7 +161,13 @@ export const DashboardSidebar = () => {
                             <SidebarMenu>
                                 {configurationItems.map((item) => (
                                     <SidebarMenuItem key={item.title}>
-                                        <SidebarMenuButton asChild tooltip={item.title} isActive={isActive(item.url)} >
+                                        <SidebarMenuButton
+                                        className={cn(
+                                            isActive(item.url) && "bg-gradient-to-b from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90!"
+                                        )} 
+                                        asChild 
+                                        tooltip={item.title}
+                                         isActive={isActive(item.url)} >
                                             <Link href={item.url}>
                                                 <item.icon />
                                                 <span>{item.title}</span>
@@ -183,7 +192,13 @@ export const DashboardSidebar = () => {
                             <SidebarMenu>
                                 {accountItem.map((item) => (
                                     <SidebarMenuItem key={item.title}>
-                                        <SidebarMenuButton asChild tooltip={item.title} isActive={isActive(item.url)} >
+                                        <SidebarMenuButton
+                                        className={cn(
+                                            isActive(item.url) && "bg-gradient-to-b from-sidebar-primary to-[#0b63f3]! text-sidebar-primary-foreground! hover:to-[#0b63f3]/90!"
+                                        )}
+                                         asChild 
+                                         tooltip={item.title}
+                                          isActive={isActive(item.url)} >
                                             <Link href={item.url}>
                                                 <item.icon />
                                                 <span>{item.title}</span>
@@ -202,15 +217,15 @@ export const DashboardSidebar = () => {
                     <SidebarMenuItem>
                         <div className="overflow-hidden w-full flex items-center ">
                             <UserButton
-                            appearance={{
-                                elements :{
-                                    rootBox : "w-full! h-8!",
-                                    userButtonTrigger : "w-full! p-2! hover:bg-sidebar-accent! hover:text-sidebar-accent-foreground!  group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! ",
-                                    userButtonBox : "w-full! flex-row-reverse! justify-end! gap-2! group-data-[collapsible=icon]:justify-center! text-sidebar-foreground!",
-                                    userButtonOuter : "pl-0! group-data-[collapsible=icon]:hidden!",
+                                appearance={{
+                                    elements: {
+                                        rootBox: "w-full! h-8!",
+                                        userButtonTrigger: "w-full! p-2! hover:bg-sidebar-accent! hover:text-sidebar-accent-foreground!  group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! ",
+                                        userButtonBox: "w-full! flex-row-reverse! justify-end! gap-2! group-data-[collapsible=icon]:justify-center! text-sidebar-foreground!",
+                                        userButtonOuter: "pl-0! group-data-[collapsible=icon]:hidden!",
 
-                                }
-                            }}
+                                    }
+                                }}
                                 showName={open}
                             />
                         </div>
