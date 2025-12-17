@@ -20,7 +20,7 @@ export const WidgetFooter = () => {
             onClick={()=>{}}
             variant="ghost">
                 <InboxIcon
-                className={cn("size-5",screen==="inbox" && "text-primary")}/>
+                className={cn("size-5")}/>
             </Button>
         </footer>
     )

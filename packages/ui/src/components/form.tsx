@@ -5,7 +5,7 @@ import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
 import {
   Controller,
-  FormProvider,
+  FormProvider as Form,
   useFormContext,
   useFormState,
   type ControllerProps,
@@ -16,7 +16,6 @@ import {
 import { cn } from "@workspace/ui/lib/utils"
 import { Label } from "@workspace/ui/components/label"
 
-const Form = FormProvider
 
 type FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
