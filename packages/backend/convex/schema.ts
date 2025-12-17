@@ -5,7 +5,7 @@ import { platform } from "os"
 
 export default  defineSchema({
 
-  contactSession:defineTable({
+  contactSessions:defineTable({
     name:v.string(),
     email:v.string(),
     organizationId:v.string(),
